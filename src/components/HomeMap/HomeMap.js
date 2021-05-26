@@ -1,9 +1,10 @@
 import React from 'react'
-import { Image, StyleSheet, Text, View, FlatList } from 'react-native'
+import { Image, StyleSheet, Dimensions } from 'react-native'
 import MapView, { PROVIDER_GOOGLE, Marker } from 'react-native-maps'
 import cars from '../../assets/data/cars'
 
 export default function HomeMap() {
+ 
 
 
     const getImage = (type) => {
@@ -23,11 +24,12 @@ export default function HomeMap() {
         <MapView
             style={{ height: '100%', width: '100%' }}
             provider={PROVIDER_GOOGLE}
+            showsUserLocation={true}
             initialRegion={{
-                latitude: 28.450627,
-                longitude: -16.263045,
-                latitudeDelta: 0.0222,
-                longitudeDelta: 0.0121,
+                latitude: 51.1605227,
+                longitude: 71.4703558,
+                latitudeDelta: 0.28479920301184336,
+                longitudeDelta: 0.1714510252245211,
             }}
         >
 
@@ -40,9 +42,11 @@ export default function HomeMap() {
                     }}   >
                     <Image
                         source={getImage(car.type)}
-                        style={[styles.imageMarker, { transform:[{
-                            rotate:`${car.heading}deg`
-                        }]}]} />
+                        style={[styles.imageMarker, {
+                            transform: [{
+                                rotate: `${car.heading}deg`
+                            }]
+                        }]} />
                 </Marker>
             ))}
 
@@ -56,6 +60,6 @@ const styles = StyleSheet.create({
         width: 50,
         height: 50,
         resizeMode: 'contain',
-       
+
     },
 })

@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
     container: {
         flexDirection: 'row',
         alignItems: 'center',
-        padding: 15,
+        padding: 10,
         borderBottomColor: '#eee',
         borderBottomWidth: 1
     },
@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
     },
     type: {
         fontWeight: 'bold',
-        fontSize: 18,
+        fontSize: 16,
         // marginBottom: 5
     },
     time: {
@@ -69,7 +69,7 @@ const styles = StyleSheet.create({
     },
     price: {
         fontWeight: 'bold',
-        fontSize: 18,
+        fontSize: 16,
         marginLeft: 5,
     },
 })

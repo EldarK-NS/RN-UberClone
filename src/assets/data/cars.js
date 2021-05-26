@@ -2,29 +2,33 @@ export default [
   {
     id: '0',
     type: 'UberX',
-    latitude: 28.450627,
-    longitude: -16.263045,
+    latitude: 51.1602665728,
+    longitude: 71.4608950773,
     heading: 47,
+    name: 'Imanov str 56'
   },
   {
     id: '1',
     type: 'Comfort',
-    latitude: 28.456312,
-    longitude: -16.252929,
+    latitude: 51.1613548325,
+    longitude: 71.4629530907,
     heading: 190,
+    name: 'Yanushkevitch st 3'
   },
   {
     id: '2',
     type: 'UberXL',
-    latitude: 28.456208,
-    longitude: -16.259098,
+    latitude: 51.164399544,
+    longitude: 71.4588975906,
     heading: 99,
+    name: 'Kenesary st 85/2'
   },
   {
     id: '3',
     type: 'Comfort',
-    latitude: 28.454812,
-    longitude: -16.258658,
+    latitude: 51.1630214183,
+    longitude: 74.4713737168,
     heading: 0,
+    name: 'Pushkin st'
   },
 ];

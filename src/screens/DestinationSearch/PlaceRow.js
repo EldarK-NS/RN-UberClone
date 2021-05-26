@@ -3,7 +3,7 @@ import { StyleSheet, Text, View } from 'react-native'
 import EntypoIcon from 'react-native-vector-icons/Entypo';
 
 export default function PlaceRow({ data }) {
-    console.log(data)
+    // console.log(data)
     return (
         <View style={styles.row}>
             <View style={styles.iconContainer}>

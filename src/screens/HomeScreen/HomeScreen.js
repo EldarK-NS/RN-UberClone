@@ -8,9 +8,9 @@ export default function HomeScreen(props) {
     return (
         <View>
             <View style={styles.map}>
-            <HomeMap />
+                <HomeMap />
             </View>
-            <CovidMessage />
+            {/* <CovidMessage /> */}
             <HomeSearch />
         </View>
     )
@@ -18,6 +18,6 @@ export default function HomeScreen(props) {
 
 const styles = StyleSheet.create({
     map: {
-        height: Dimensions.get('window').height * 0.45
+        height: Dimensions.get('window').height * 0.6
     },
 })

@@ -6,13 +6,12 @@
  * @flow strict-local
  */
 
+import 'react-native-gesture-handler';
 import React, { useEffect } from 'react';
 import { StatusBar, PermissionsAndroid, Platform } from 'react-native';
 import Geolocation from '@react-native-community/geolocation';
+import RootNavigator from './src/navigation/RootNavigator';
 
-import SearchResults from './src/components/SearchResults/SearchResults';
-import DestinationSearchScreen from './src/screens/DestinationSearch/DestinationSearchScreen';
-import HomeScreen from './src/screens/HomeScreen/HomeScreen';
 
 navigator.geolocation = require('@react-native-community/geolocation')
 
@@ -41,7 +40,6 @@ const App: () => Node = () => {
       console.warn(err);
     }
   }
-
   useEffect(() => {
     if (Platform.OS === 'android') {
       androidPermissions()
@@ -53,9 +51,7 @@ const App: () => Node = () => {
   return (
     < >
       <StatusBar />
-      {/* <HomeScreen /> */}
-      <DestinationSearchScreen />
-      {/* <SearchResults /> */}
+      <RootNavigator />
     </>
   );
 };

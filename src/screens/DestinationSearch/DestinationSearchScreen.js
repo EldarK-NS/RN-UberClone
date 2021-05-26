@@ -2,19 +2,32 @@ import React, { useState, useEffect } from 'react'
 import { SafeAreaView, StyleSheet, View } from 'react-native'
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
 import PlaceRow from './PlaceRow';
+import { useNavigation } from '@react-navigation/native'
+
 import { key } from './../../../key';
 
 export default function DestinationSearchScreen(props) {
-
+    const navigation = useNavigation()
     const [originPlace, setOriginPlace] = useState(null)
     const [destinationPlace, setDestinationPlace] = useState(null)
+
     const homePlace = {
         description: 'Home',
-        geometry: { location: { lat: 48.8152937, lng: 2.4597668 } },
+        geometry: {
+            location: {
+                lat: 51.1657460927,
+                lng: 71.430287243
+            }
+        },
     };
     const workPlace = {
         description: 'Work',
-        geometry: { location: { lat: 48.8496818, lng: 2.2940881 } },
+        geometry: {
+            location: {
+                lat: 51.1599149393,
+                lng: 71.4060258865
+            }
+        },
     };
 
 
@@ -25,7 +38,10 @@ export default function DestinationSearchScreen(props) {
 
     useEffect(() => {
         if (originPlace && destinationPlace) {
-            console.log('Redirect to result')
+            navigation.navigate('SearchResults', {
+                originPlace,
+                destinationPlace,
+            })
         }
     }, [originPlace, destinationPlace])
 
@@ -41,6 +57,7 @@ export default function DestinationSearchScreen(props) {
                     suppressDefaultStyles
                     enablePoweredByContainer={false}
                     currentLocation={true}
+                    isRowScrollable={true}
                     currentLocationLabel='Current Location'
                     styles={{
                         textInput: styles.textInput,
@@ -53,7 +70,6 @@ export default function DestinationSearchScreen(props) {
                     renderRow={(data) => <PlaceRow data={data} />}
                     renderDescription={(data) => data.description || data.vicinity}
                     predefinedPlaces={[homePlace, workPlace]}
-                // isRowScrollable={true}
                 />
 
                 <GooglePlacesAutocomplete
@@ -61,6 +77,7 @@ export default function DestinationSearchScreen(props) {
                     onPress={(data, details = null) => {
                         setDestinationPlace({ data, details })
                     }}
+                    isRowScrollable={true}
                     suppressDefaultStyles
                     enablePoweredByContainer={false}
                     styles={{
